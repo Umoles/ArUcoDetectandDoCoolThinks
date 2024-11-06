@@ -18,6 +18,3 @@ ros
 
 
 
-![Uploading processed_ArUco1.jpeg…]()
-
-
