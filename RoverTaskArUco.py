@@ -20,7 +20,7 @@ rate = rospy.Rate(fps)
 if VideoCap is False: # kamera kullanılmicaksa fotoğraf klasörleri
     image_directory = "./aruco_tags/"
     save_directory = "./processed_images/"
-    os.makedirs(save_directory, exist_ok=True)  # Create directory if it doesn't exist
+    os.makedirs(save_directory, exist_ok=True) 
 
 
 def findAruco(img, draw=True):   # detection func
