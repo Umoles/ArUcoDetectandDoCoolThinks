@@ -8,7 +8,7 @@ import os
 rospy.init_node('aruco_detector_node', anonymous=True)
 trajectory_pub = rospy.Publisher('/trajectory_info', String, queue_size=10)
 
-fps = 24   # kameranın fps i ve publisher ın hz = fps
+fps = 15   # kameranın fps i ve publisher ın hz = fps
 VideoCap = False
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FPS, fps)
@@ -73,7 +73,7 @@ while not rospy.is_shutdown():
                 img_path = os.path.join(image_directory, filename)
                 img = cv2.imread(img_path)
             if filename in processed_files:
-                continue 
+                break 
 
             corners, ids, processed_img = findAruco(img)
             if ids is not None: 
@@ -84,8 +84,9 @@ while not rospy.is_shutdown():
                 processed_files.add(filename)
 
     bbox, ids, corners = findAruco(img)
+    if  processed_files:
+        break
     if cv2.waitKey(1) == 113:  # q to quit
-        #time.sleep(2)
         break
     cv2.imshow("img", img)
 
@@ -93,4 +94,3 @@ while not rospy.is_shutdown():
 
 cap.release()
 cv2.destroyAllWindows()
-
