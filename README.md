@@ -1,7 +1,16 @@
 # ArUcoDetectandDoCoolThinks
 
-Bu repositoryde amacımız ilk olarak ArUco tag tespiti ve kamerada tespit edilen bu tagin(1 tane olduğunu varsayacağız)
-orta noktasına kamera görüntüsünün orta noktasından bir vektör çizimi gerçekleştirmektir.Bu yol ile tag'e doğru hareket edileceği varsayılan aracın hangi yönde ilerlemesi gerektiğini doğru şekilde ros aracılığyla diğer node lara publischlemek ve yüksek başarı oranıyla aracın doğru yere hareketinin sağlanmasıdır.
+Bu repositoryde amacımız ilk olarak ArUco tag tespitidir. ArUco Tag tespiti sonrasında görüntünün orta noktasından, tespit edilmiş tagin orta noktasına bir vektör çizilir. Bu şekilde tag'e doğru hareket edileceği varsayılan aracın hangi yönde ilerlemesi gerektiğini ros aracılığyla diğer node lara publischlemek ve yüksek doğruluk oranıyla aracın doğru yere varışının sağlanmasıdır.
+
+Gereksinimler 
+python3 
+cv2 
+pip3 uninstall opencv-python
+pip3 install -U opencv-contrib-python
+python3 -m pip install opencv-contrib-python
+ros 
+
+
 
 
 
