@@ -3,18 +3,15 @@ Our first goal in this repository is to detect ArUco tags. After ArUco Tag detec
 
 Bu repositoryde amacımız ilk olarak ArUco tag tespitidir. ArUco Tag tespiti sonrasında görüntünün orta noktasından, tespit edilmiş tagin orta noktasına bir vektör çizilir. Amacımız bu şekilde tag'e doğru hareket edileceği varsayılan aracın hangi yönde ilerlemesi gerektiği ros aracılığıyla diğer node'lara publischlemek ve yüksek doğruluk oranıyla aracın doğru yere varışının sağlamaktır.
 
-Gereksinimler 
-python3 
-cv2 
-pip3 uninstall opencv-python
-pip3 install -U opencv-contrib-python
-python3 -m pip install opencv-contrib-python
-ros 
+![Output]
+## 1. Prerequisites
+- python
+- [ROS](http://wiki.ros.org/ROS/Installation)
 
+```
+    # if your cv2 version is lover then 4.7 syntax must be changed
+    pip3 uninstall opencv-python
+    pip3 uninstall opencv-python
+    pip3 install -U opencv-contrib-python
 
-
-
-
-
-
-
+```
