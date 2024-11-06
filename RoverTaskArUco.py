@@ -9,7 +9,7 @@ rospy.init_node('aruco_detector_node', anonymous=True)
 trajectory_pub = rospy.Publisher('/trajectory_info', String, queue_size=10)
 
 fps = 15   # kameranın fps i ve publisher ın hz = fps
-VideoCap = False
+VideoCap = True
 cap = cv2.VideoCapture(0)
 cap.set(cv2.CAP_PROP_FPS, fps)
 print("Current FPS:", cap.get(cv2.CAP_PROP_FPS))
@@ -20,7 +20,7 @@ rate = rospy.Rate(fps)
 if VideoCap is False: # kamera kullanılmicaksa fotoğraf klasörleri
     image_directory = "./aruco_tags/"
     save_directory = "./processed_images/"
-    os.makedirs(save_directory, exist_ok=True)  # Create directory if it doesn't exist
+    os.makedirs(save_directory, exist_ok=True)
 
 
 def findAruco(img, draw=True):   # detection func
@@ -72,24 +72,19 @@ while not rospy.is_shutdown():
                 img_path = os.path.join(image_directory, filename)
                 img = cv2.imread(img_path)
 
-
             corners, ids, processed_img = findAruco(img)
             if ids is not None: 
                 save_path = os.path.join(save_directory, f"processed_{filename}")
                 cv2.imwrite(save_path, processed_img)
                 print(f"Saved: {save_path}")
                 #cv2.imshow("img", processed_img)
-            
         break
-
     bbox, ids, corners = findAruco(img)
 
     if cv2.waitKey(1) == 113:  # q to quit
         break
     cv2.imshow("img", img)
-
     continue
-
 cap.release()
 cv2.destroyAllWindows()
 
