@@ -21,4 +21,4 @@ Bu repositoryde amacımız ilk olarak ArUco tag tespitidir. ArUco Tag tespiti so
 #if VideoCap = True it ll run your camera. If it is False it ll detect all photos in your directory(image_directory)
 
 ```
-![Output]()
+![Output](./processed_ArUco4.jpeg)
