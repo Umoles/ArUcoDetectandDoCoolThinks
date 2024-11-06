@@ -20,7 +20,7 @@ rate = rospy.Rate(fps)
 if VideoCap is False: # kamera kullanılmicaksa fotoğraf klasörleri
     image_directory = "./aruco_tags/"
     save_directory = "./processed_images/"
-    os.makedirs(save_directory, exist_ok=True) 
+    os.makedirs(save_directory, exist_ok=True)  # Create directory if it doesn't exist
 
 
 def findAruco(img, draw=True):   # detection func
@@ -61,7 +61,6 @@ def findAruco(img, draw=True):   # detection func
     
     return corners, ids, img
 
-processed_files = set() 
 
 while not rospy.is_shutdown():
     if VideoCap:   # kamera kullanılıyorsa
@@ -72,20 +71,19 @@ while not rospy.is_shutdown():
             if filename.endswith((".jpg", ".jpeg", ".png", "webp")):
                 img_path = os.path.join(image_directory, filename)
                 img = cv2.imread(img_path)
-            if filename in processed_files:
-                break 
+
 
             corners, ids, processed_img = findAruco(img)
             if ids is not None: 
                 save_path = os.path.join(save_directory, f"processed_{filename}")
                 cv2.imwrite(save_path, processed_img)
                 print(f"Saved: {save_path}")
-                cv2.imshow("img", processed_img)
-                processed_files.add(filename)
+                #cv2.imshow("img", processed_img)
+            
+        break
 
     bbox, ids, corners = findAruco(img)
-    if  processed_files:
-        break
+
     if cv2.waitKey(1) == 113:  # q to quit
         break
     cv2.imshow("img", img)
@@ -94,3 +92,4 @@ while not rospy.is_shutdown():
 
 cap.release()
 cv2.destroyAllWindows()
+
