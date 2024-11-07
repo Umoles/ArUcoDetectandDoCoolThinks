@@ -15,7 +15,8 @@ Bu repositoryde amacımız ilk olarak ArUco tag tespitidir. ArUco Tag tespiti so
 ```
 ## 2. Usage
     Clone Rep on your work space.
-    Run roscore and
+    run roscore 
+    cd src
 
     python3 RoverTaskArUco.py
 #if VideoCap = True it ll run your camera. If it is False it ll detect all photos in your directory(image_directory)
