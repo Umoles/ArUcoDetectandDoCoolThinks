@@ -21,6 +21,4 @@ Bu repositoryde amacımız ilk olarak ArUco tag tespitidir. ArUco Tag tespiti so
     python3 RoverTaskArUco.py
 #if VideoCap = True it ll run your camera. If it is False it ll detect all photos in your directory(image_directory)
 
-```
-#
 ![](./processed_ArUco4.jpeg)
